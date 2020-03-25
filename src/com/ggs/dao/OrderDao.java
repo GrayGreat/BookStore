@@ -3,16 +3,13 @@ package com.ggs.dao;
 import com.ggs.domain.Order;
 import com.ggs.domain.OrderItem;
 import com.ggs.utils.DataSourceUtils;
-import com.ggs.vo.Query;
 import com.ggs.vo.Receiver;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 

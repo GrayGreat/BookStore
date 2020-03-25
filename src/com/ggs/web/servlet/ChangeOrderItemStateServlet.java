@@ -21,7 +21,7 @@ public class ChangeOrderItemStateServlet extends HttpServlet {
         String itemid = request.getParameter("itemid");
         String state = request.getParameter("state");
 
-        //动态修改状态
+        //鍔ㄦ�佷慨鏀圭姸鎬�
         OrderService orderService=new OrderService();
         boolean isSuccess=false;
         try {

@@ -23,6 +23,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @author Not Today
@@ -52,17 +53,18 @@ public class UpdateBookInfoServlet extends HttpServlet {
                     //1.1执行上传
                     //1.1.1获取服务器上传目录路径
 //                    String path = getServletContext().getRealPath("/upload");
-                    String path = "D:\\IDEA_workspace\\FirstProject\\BookStore\\web\\bookImg";
+                    String path = request.getServletContext().getRealPath("/bookImg");
+                    String imageName = UUID.randomUUID().toString()+"."+fileItem.getName().split("\\.")[1];
                     //1.1.2上传
                     InputStream is = fileItem.getInputStream();
-                    FileOutputStream fos = new FileOutputStream(new File(path, fileItem.getName()));
+                    FileOutputStream fos = new FileOutputStream(new File(path, imageName));
                     IOUtils.copy(is, fos);
                     //清楚临时文件
                     fileItem.delete();
                     is.close();
                     fos.close();
                     //将pimage属性存入map
-                    paramsMap.put(fileItem.getFieldName(), fileItem.getName());
+                    paramsMap.put(fileItem.getFieldName(), imageName);
                     System.out.println(paramsMap.toString());
                 } else {
 //                    普通组件

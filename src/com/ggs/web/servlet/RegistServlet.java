@@ -58,10 +58,11 @@ public class RegistServlet extends HttpServlet {
 //            System.out.println(user.toString());
             response.setContentType("text/html;charset=UTF-8");
             if (isRegist) {
+            	String projectPath=request.getContextPath();
 //                //跳转之前,先发送激活邮件
 
-                String emailMsg="恭喜您注册成功!请点击下面的链接激活账户<a href='http://localhost:8080/BookStore/active?activeCode="+user.getActive_code()+"'>" +
-                        "http://localhost:8080/BookStore/active?activeCode="+user.getActive_code()+"</a>";
+                String emailMsg="恭喜您注册成功!请点击下面的链接激活账户<a href='http://localhost:8080/"+projectPath+"/active?activeCode="+user.getActive_code()+"'>" +
+                        "http://localhost:8080/"+projectPath+"/active?activeCode="+user.getActive_code()+"</a>";
                 //用户点击后跳转activeServlet进行激活---->修改激活码这个字段
                 try {
                     MailUtils.sendMail(user.getEmail(), emailMsg);

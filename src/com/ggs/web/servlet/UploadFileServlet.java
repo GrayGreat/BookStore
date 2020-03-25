@@ -54,18 +54,23 @@ public class UploadFileServlet extends HttpServlet {
                     //1.1.1获取服务器上传目录路径
 //                    String path = getServletContext().getRealPath("/upload");
 
-                    String path="D:\\IDEA_workspace\\FirstProject\\BookStore\\web\\bookImg";
+                    String path=request.getServletContext().getRealPath("/bookImg");
                     //String path = getServletContext().getRealPath("/web/bookImg");
                     //1.1.2上传
                     InputStream is = fileItem.getInputStream();
-                    FileOutputStream fos = new FileOutputStream(new File(path, fileItem.getName()));
+                    String imageName=UUID.randomUUID().toString()+"."+fileItem.getName().split("\\.")[1];
+                    File imageFile = new File(path, imageName);
+//                    if(!imageFile.exists()) {
+//                    	imageFile.createNewFile();
+//                    }
+                    FileOutputStream fos = new FileOutputStream(imageFile);
                     IOUtils.copy(is, fos);
                     //清楚临时文件
                     fileItem.delete();
                     fos.close();
                     is.close();
                     //将pimage属性存入map
-                    paramsMap.put(fileItem.getFieldName(),  fileItem.getName());
+                    paramsMap.put(fileItem.getFieldName(),  imageName);
                     System.out.println(paramsMap.toString());
                 }else{
 //                    普通组件
