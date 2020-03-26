@@ -1,4 +1,4 @@
-# BookStore
+# 基于JavaEE的BookStore简单的书城项目
 
 JavaEE项目:
 
