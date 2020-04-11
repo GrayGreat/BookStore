@@ -30,7 +30,7 @@ public class MailUtils2 {
 		// 创建验证器
 		Authenticator auth = new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("a1285226024", "a1285226024");
+				return new PasswordAuthentication("xxxxxxxxxx", "xxxxxxxxxxx");
 			}
 		};
 
@@ -40,7 +40,7 @@ public class MailUtils2 {
 		// 2.创建一个Message，它相当于是邮件内容
 		Message message = new MimeMessage(session);
 
-		message.setFrom(new InternetAddress("a1285226024@126.com")); // 设置发送者
+		message.setFrom(new InternetAddress("xxxxxxxxxxxx@qq.com")); // 设置发送者
 
 		message.setRecipient(RecipientType.TO, new InternetAddress(email)); // 设置发送方式与接收者
 
